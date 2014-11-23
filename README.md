@@ -3,7 +3,7 @@ E-Commerce-scraper
 
 ###About
 
-Scraper built with [Scrapy.](http://scrapy.org/)
+Scraper built with [Scrapy.](http://scrapy.org/) Option to send e-mail and sms message when scraping is finished.
 
 ###Screenshot
 
