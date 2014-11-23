@@ -6,7 +6,10 @@ from w3lib.html import replace_escape_chars, remove_tags
 from scrapy.selector import HtmlXPathSelector
 from scrapy.selector import Selector
 from scrapy.http import Request
+from twilio.rest import TwilioRestClient
+from scrapy import signals
 import urlparse
+import smtplib
 
 
 
@@ -14,7 +17,7 @@ class EmmiSpider(CrawlSpider):
     name = "emi"
     allowed_domains = ["emmi.rs"]
     start_urls = [
-        "http://emmi.rs/konfigurator/proizvodi.10.html?go=true&Id=10&productTitle=a&brandId=&categoryId=&price=&discount=&advanced_search=1&limit=1000&offset=0"
+        "http://emmi.rs/konfigurator/proizvodi.10.html?go=true&Id=10&productTitle=a&brandId=&categoryId=&price=&discount=&advanced_search=1&limit=10&offset=0"
 
     ]
 
@@ -42,3 +45,43 @@ class EmmiSpider(CrawlSpider):
         return l.load_item()
 
 
+    @classmethod        
+    def from_crawler(cls, crawler):
+        spider = cls()
+        crawler.signals.connect(spider.sending_email, signals.spider_closed)
+        crawler.signals.connect(spider.send_sms, signals.spider_closed)
+        return spider
+
+
+    def sending_email(self, spider):
+        def send_email(sender, sender_password, smtp_server, reciever, message, subject):
+            body = "" + message + ""
+
+            headers = ["From: " + sender,
+            "Subject: " + subject,
+            "To: " + reciever,
+            "MIME-Version: 1.0",
+            "Content-Type: text/html"]
+            headers = "\r\n".join(headers)
+
+            session = smtplib.SMTP(smtp_server)
+
+            session.ehlo()
+            session.starttls()
+            session.ehlo()
+            session.login(sender, sender_password)
+
+            session.sendmail(sender, reciever, headers + "\r\n\r\n" + body)
+            session.quit()
+
+        send_email("username", "password", "smtp.gmail.com:587",
+        "to", "message", "cca")
+
+
+    def send_sms(self, spider):
+        account_sid = ""
+        auth_token = ""
+        client = TwilioRestClient(account_sid, auth_token)
+        message = (client.sms.messages.create(body='', to="",
+        from_=""))
+    
