@@ -17,7 +17,7 @@ class EmmiSpider(CrawlSpider):
     name = "emi"
     allowed_domains = ["emmi.rs"]
     start_urls = [
-        "http://emmi.rs/konfigurator/proizvodi.10.html?go=true&Id=10&productTitle=a&brandId=&categoryId=&price=&discount=&advanced_search=1&limit=10&offset=0"
+        "http://emmi.rs/konfigurator/proizvodi.10.html?go=true&Id=10&productTitle=a&brandId=&categoryId=&price=&discount=&advanced_search=1&limit=10000&offset=0"
 
     ]
 
