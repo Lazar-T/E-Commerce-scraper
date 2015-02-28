@@ -40,7 +40,7 @@ class EmmiSpider(CrawlSpider):
         l.add_value('product', response.meta['product'])
         l.add_xpath('img_url', '/html/body/div[3]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/a/img/@src')
         l.add_xpath('description', '//*[@class="productListText widthFull noPadding"]/text()')
-        l.add_xpath('price', '//*[@class="price"]/text()')
+        l.add_xpath('price', '//*[@class="price"]/text()[2]')
         l.add_value('url_of_item', response.url)
         return l.load_item()
 
