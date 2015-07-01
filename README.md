@@ -3,7 +3,7 @@ E-Commerce-scraper
 
 ###About
 
-Scraper built with [Scrapy](http://scrapy.org/). Scrapes [emmi.rs](http://emmi.rs/naslovna_stranica.1.html) and outputs all available products currently on site. Option to send [e-mail](https://docs.python.org/2/library/smtplib.html) and [sms message](https://www.twilio.com/) when scraping is finished.
+Scraper built with [Scrapy](http://scrapy.org/). Scrapes [emmi.rs](http://emmi.rs/naslovna_stranica.1.html) and outputs all available products currently on site. Option to send [e-mail](https://docs.python.org/2/library/smtplib.html) and [sms message](https://www.twilio.com/) when scraping is finished. Uses rotating user agents.
 Also included csv, json and xml files that Scrapy generates.
 
 ###Screenshot
