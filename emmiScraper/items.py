@@ -13,4 +13,4 @@ class EmmiscraperItem(scrapy.Item):
     price = scrapy.Field()
     img_url = scrapy.Field()
     description	= scrapy.Field()
-    url_of_item = scrapy.Field()   
+    url_of_item = scrapy.Field()
