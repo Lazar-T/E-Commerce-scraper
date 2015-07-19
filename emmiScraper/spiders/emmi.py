@@ -12,7 +12,6 @@ import urlparse
 import smtplib
 
 
-
 class EmmiSpider(CrawlSpider):
     name = "emi"
     allowed_domains = ["emmi.rs"]
@@ -31,8 +30,6 @@ class EmmiSpider(CrawlSpider):
                           meta={'product': product}
                           )
 
-
-
     def parse_item(self, response):
         l = ItemLoader(item=EmmiscraperItem(), response=response)
         hxs = HtmlXPathSelector(response)
@@ -44,14 +41,12 @@ class EmmiSpider(CrawlSpider):
         l.add_value('url_of_item', response.url)
         return l.load_item()
 
-
-    @classmethod        
+    @classmethod
     def from_crawler(cls, crawler):
         spider = cls()
         crawler.signals.connect(spider.sending_email, signals.spider_closed)
         crawler.signals.connect(spider.send_sms, signals.spider_closed)
         return spider
-
 
     def sending_email(self, spider):
         def send_email(sender, sender_password, smtp_server, reciever, message, subject):
@@ -77,11 +72,9 @@ class EmmiSpider(CrawlSpider):
         send_email("username", "password", "smtp.gmail.com:587",
         "to", "message", "cca")
 
-
     def send_sms(self, spider):
         account_sid = ""
         auth_token = ""
         client = TwilioRestClient(account_sid, auth_token)
         message = (client.sms.messages.create(body='', to="",
         from_=""))
-    
