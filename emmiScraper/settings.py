@@ -14,9 +14,9 @@ SPIDER_MODULES = ['emmiScraper.spiders']
 NEWSPIDER_MODULE = 'emmiScraper.spiders'
 
 DOWNLOADER_MIDDLEWARES = {
-        'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,
-        'emmiScraper.rotate_useragent.RotateUserAgentMiddleware' :400
+        'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
+        'emmiScraper.rotate_useragent.RotateUserAgentMiddleware': 400
     }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'emmiScraper (+http://www.yourdomain.com)'
+# USER_AGENT = 'emmiScraper (+http://www.yourdomain.com)'
