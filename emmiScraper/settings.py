@@ -14,7 +14,7 @@ SPIDER_MODULES = ['emmiScraper.spiders']
 NEWSPIDER_MODULE = 'emmiScraper.spiders'
 
 DOWNLOADER_MIDDLEWARES = {
-        'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
+        'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
         'emmiScraper.rotate_useragent.RotateUserAgentMiddleware': 400
     }
 

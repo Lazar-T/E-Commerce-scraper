@@ -2,7 +2,7 @@
 # -*-coding:utf-8-*-
 
 import random
-from scrapy.contrib.downloadermiddleware.useragent import UserAgentMiddleware
+from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
 
 
 class RotateUserAgentMiddleware(UserAgentMiddleware):

@@ -1,7 +1,7 @@
-from scrapy.contrib.spiders import CrawlSpider, Rule
-from scrapy.contrib.loader import ItemLoader
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.loader import ItemLoader
 from emmiScraper.items import EmmiscraperItem
-from scrapy.contrib.loader.processor import Compose, MapCompose
+from scrapy.loader.processors import Compose, MapCompose
 from w3lib.html import replace_escape_chars, remove_tags
 from scrapy.selector import HtmlXPathSelector
 from scrapy.selector import Selector
