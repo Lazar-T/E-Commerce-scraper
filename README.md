@@ -1,12 +1,12 @@
 E-Commerce-scraper
 ==================
 
-###About
+### About
 
 Spider built with [Scrapy](http://scrapy.org/). Scrapes [emmi.rs](http://emmi.rs/naslovna_stranica.1.html) and gets all available products. Option to send [e-mail](https://docs.python.org/2/library/smtplib.html) and [sms message](https://www.twilio.com/) when scraping is finished. Uses rotating user agents.
 Also included `csv`, `json` and `xml` files that Scrapy can generate.
 
-###Screenshot
+### Screenshot
 
 ![Screenshot](http://i.imgur.com/nitKLQg.png)
 
